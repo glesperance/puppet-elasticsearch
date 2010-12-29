@@ -14,6 +14,6 @@ class elasticsearch::install {
 	file { $es_home_dir:
 		ensure  => link,
 		target  => $es_install_dir,
-		require => Common::Archive["elasticsearch-${es_version}"]
+		require => Common::Archive["elasticsearch-${es_version}.tar.gz"]
 	}
 }
