@@ -4,10 +4,10 @@
 class elasticsearch::install {
 	include java::jre6headless
 	
-	common::archive { "elasticsearch-${es_version}":
+	common::archive { "elasticsearch-${es_version}.tar.gz":
 	    ensure   => present,
 		checksum => false,
-	    url      => "http://github.com/downloads/elasticsearch/elasticsearch/elasticsearch-0.14.0.tar.gz",
+	    url      => "http://github.com/downloads/elasticsearch/elasticsearch/elasticsearch-${es_version}.tar.gz",
 	    target   => "$es_unpack_root",
 	  }
 	

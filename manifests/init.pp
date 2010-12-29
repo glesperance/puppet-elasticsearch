@@ -3,7 +3,7 @@ import "classes/*.pp"
 #
 #
 class elasticsearch {
-	if !$es_version { $es_version = "0.14.0" }
+	if !$es_version { $es_version = "0.14.1" }
 	if !$es_unpack_root { $es_unpack_root = "/opt" }
 	if !$es_config_dir { $es_config_dir = "/etc/elasticsearch" }
 	if !$es_log_dir { $es_log_dir = "/var/log/elasticsearch" }
