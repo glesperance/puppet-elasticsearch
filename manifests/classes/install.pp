@@ -7,7 +7,7 @@ class elasticsearch::install {
 	common::archive { "elasticsearch-${es_version}":
 	    ensure   => present,
 		checksum => false,
-	    url      => "http://github.com/downloads/elasticsearch/elasticsearch/elasticsearch-${es_version}.tar.gz",
+	    url      => "http://cloud.github.com/downloads/elasticsearch/elasticsearch/elasticsearch-${es_version}.tar.gz",
 	    target   => "$es_unpack_root",
 	  }
 	
