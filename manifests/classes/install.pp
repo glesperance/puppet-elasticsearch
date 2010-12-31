@@ -8,7 +8,8 @@ class elasticsearch::install {
 	    ensure   => present,
 		checksum => false,
 	    url      => "http://cloud.github.com/downloads/elasticsearch/elasticsearch/elasticsearch-${es_version}.tar.gz",
-	    target   => "$es_unpack_root",
+		timeout  => 600,
+	    target   => "$es_unpack_root"
 	  }
 	
 	file { $es_home_dir:
