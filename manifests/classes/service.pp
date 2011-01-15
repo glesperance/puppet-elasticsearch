@@ -6,7 +6,7 @@ class elasticsearch::service {
 		ensure     => running,
 		enable     => true,
 		hasrestart => true,
-		hasstatus  => false,
-		require    => Class["elasticsearch::config"]
+		hasstatus  => true,
+		require    => [ Class[$java_class], Class["elasticsearch::config"] ]
 	}
 }

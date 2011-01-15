@@ -13,8 +13,20 @@ class elasticsearch {
 	$es_install_dir = "${es_unpack_root}/elasticsearch-${es_version}"
 	
 	# Some tuning variables
-	if !$es_min_mem { $es_min_mem = "256M" }
-	if !$es_max_mem { $es_max_mem = "2g" }
+	if !$es_min_mem { $es_min_mem = "256" }
+	if !$es_max_mem { $es_max_mem = "1024" }
 	
-	include elasticsearch::install, elasticsearch::config, elasticsearch::service
+	case $operatingsystem {
+		/(?i)(Debian|Ubuntu)/: {
+			$java_class = "java::openjdk::jre6headless"
+		}
+		/(?i)(Redhat|CentOS)/: {
+			$java_class = "java::openjdk::jdk6"
+		}
+		default: {
+			fail "Unsupported OS ${operatingsystem} in 'elasticsearch' module"
+		}
+	}
+	
+	include "${java_class}", elasticsearch::install, elasticsearch::config, elasticsearch::service
 }
