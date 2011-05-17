@@ -2,11 +2,11 @@
 #
 #
 class elasticsearch::service {
-	service { "elasticsearch":
+	service { 'elasticsearch':
 		ensure     => running,
 		enable     => true,
 		hasrestart => true,
 		hasstatus  => true,
-		require    => [ Class[$java_class], Class["elasticsearch::config"] ]
+		require    => [ Class[$java_class], Class['elasticsearch::config'] ],
 	}
 }

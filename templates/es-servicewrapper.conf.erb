@@ -1,10 +1,10 @@
-set.default.ES_HOME=<%= es_home_dir %>
-set.default.ES_MIN_MEM=<%= es_min_mem %>
-set.default.ES_MAX_MEM=<%= es_max_mem %>
-set.default.ES_CONFIG=<%= es_config_dir %>/elasticsearch.yml
-set.default.ES_LOGS=<%= es_log_dir %>
-set.default.ES_DATA=<%= es_data_dir %>
-set.default.ES_WORK=<%= es_work_dir %>
+set.default.ES_HOME=<%= scope.lookupvar('elasticsearch::params::home_dir') %>
+set.default.ES_MIN_MEM=<%= scope.lookupvar('elasticsearch::params::min_mem') %>
+set.default.ES_MAX_MEM=<%= scope.lookupvar('elasticsearch::params::max_mem') %>
+set.default.ES_CONFIG=<%= scope.lookupvar('elasticsearch::params::config_dir') %>/elasticsearch.yml
+set.default.ES_LOGS=<%= scope.lookupvar('elasticsearch::params::log_dir') %>
+set.default.ES_DATA=<%= scope.lookupvar('elasticsearch::params::data_dir') %>
+set.default.ES_WORK=<%= scope.lookupvar('elasticsearch::params::work_dir') %>
 
 #********************************************************************
 # Wrapper Timeout Properties
