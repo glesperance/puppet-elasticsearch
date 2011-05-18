@@ -12,22 +12,22 @@ class elasticsearch::params {
 		default => $elasticsearch_unpack_root,
 	}
 	
-	$config_dir = $$elasticsearch_config_dir ? {
+	$config_dir = $elasticsearch_config_dir ? {
 		''      => '/etc/elasticsearch',
 		default => $elasticsearch_config_dir,
 	}
 	
-	$log_dir = $$elasticsearch_log_dir ? {
+	$log_dir = $elasticsearch_log_dir ? {
 		''      => '/var/log/elasticsearch',
 		default => $elasticsearch_log_dir,
 	}
 	
-	$data_dir = $$elasticsearch_data_dir ? {
+	$data_dir = $elasticsearch_data_dir ? {
 		''      => '/var/lib/elasticsearch',
 		default => $elasticsearch_data_dir,
 	}
 	
-	$work_dir = $$elasticsearch_work_dir ? {
+	$work_dir = $elasticsearch_work_dir ? {
 		'' => '/tmp/elasticsearch',
 		default => $elasticsearch_work_dir,
 	}
