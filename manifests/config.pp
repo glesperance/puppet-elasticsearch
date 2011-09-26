@@ -21,10 +21,19 @@ class elasticsearch::config {
       group   => 'root',
       mode    => '0644',
       notify  => Class['elasticsearch::service'],
-      require => [ Class['elasticsearch::install'], File[$elasticsearch::params::config_dir] ],
+      require => [ Class['elasticsearch::install'] ],
     }
 	
 	} else {
+	
+  	file { $elasticsearch::params::config_dir:
+      ensure  => directory,
+      owner   => 'root',
+      group   => 'root',
+      mode    => '0755',
+      notify  => Class['elasticsearch::service'],
+      require => Class['elasticsearch::install'],
+    }
 	
   	file { "${elasticsearch::params::config_dir}/elasticsearch.yml":
   		ensure  => present,
