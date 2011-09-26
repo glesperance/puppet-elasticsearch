@@ -17,6 +17,11 @@ class elasticsearch::params {
 		default => $elasticsearch_config_dir,
 	}
 	
+	$config_dir_src = $elasticsearch_config_dir_src ? {
+    ''      => 'undef',
+    default => $elasticsearch_config_dir_src,
+  }
+	
 	$log_dir = $elasticsearch_log_dir ? {
 		''      => '/var/log/elasticsearch',
 		default => $elasticsearch_log_dir,
