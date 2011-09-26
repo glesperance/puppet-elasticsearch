@@ -3,12 +3,12 @@
 #
 class elasticsearch::params {
 	$version = $elasticsearch_version ? {
-		''      => '0.16.1',
+		''      => '0.17.7',
 		default => $elasticsearch_version,
 	}
 	
 	$unpack_root = $elasticsearch_unpack_root ? {
-		''      => '/opt',
+		''      => '/usr/local/src',
 		default => $elasticsearch_unpack_root,
 	}
 	
