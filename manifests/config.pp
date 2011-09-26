@@ -16,7 +16,7 @@ class elasticsearch::config {
     file { "${elasticsearch::params::config_dir}":
       ensure  => directory,
       source  => "${elasticsearch::params::config_dir_src}",
-      resurce => inf,
+      recurse => inf,
       owner   => 'root',
       group   => 'root',
       mode    => '0644',
