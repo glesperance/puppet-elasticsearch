@@ -16,6 +16,14 @@ class elasticsearch::install {
 		require => Common::Archive["elasticsearch-${elasticsearch::params::version}"],
 	}
 	
+	file { '/etc/security/limits.conf': 
+      ensure  => present,
+      source  => 'puppet:///modules/elasticsearch/limits.conf',
+      owner   => 'root',
+      group   => 'root',
+      mode    => '0644'
+	}
+	
 	git::clone { 'elasticsearch-servicewrapper':
 		source    => 'git://github.com/elasticsearch/elasticsearch-servicewrapper.git',
 		localtree => "${elasticsearch::params::unpack_root}",
